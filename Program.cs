@@ -1,24 +1,13 @@
 ﻿using Gtk;
-using System;
+using Explorator.Controllers;
 
-class SimpleWindow : Window
+class Program
 {
-    public SimpleWindow() : base("Simple GtkSharp Window")
-    {
-        SetDefaultSize(400, 200);
-        SetPosition(WindowPosition.Center);
-        DeleteEvent += delegate { Application.Quit(); };
-
-        Label label = new Label("Hello, GtkSharp!");
-        Add(label);
-
-        ShowAll();
-    }
-
-    static void Main()
+    public static void Main(string[] args)
     {
         Application.Init();
-        new SimpleWindow();
+        var controller = new MainController();
+        controller.ShowMainWindow();
         Application.Run();
     }
 }
